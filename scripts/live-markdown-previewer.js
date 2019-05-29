@@ -41,10 +41,10 @@ var MarkdownEditor = function (_React$Component) {
 
             return React.createElement(
                 "div",
-                null,
+                { id: "editor-preview-container" },
                 React.createElement(
                     "div",
-                    null,
+                    { id: "editor-container" },
                     React.createElement("textarea", { id: "editor", value: this.state.input, onChange: this.handleInputChange })
                 ),
                 React.createElement("div", { id: "preview", dangerouslySetInnerHTML: renderMarkdown(marked(this.state.input)) })
@@ -61,4 +61,4 @@ function renderMarkdown(markdown) {
     };
 }
 
-ReactDOM.render(React.createElement(MarkdownEditor, null), document.getElementById("editor-viewer-container"));
+ReactDOM.render(React.createElement(MarkdownEditor, null), document.getElementById("markdown-viewer"));

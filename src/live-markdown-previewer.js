@@ -35,8 +35,8 @@ class MarkdownEditor extends React.Component {
         });
 
         return (
-            <div>
-                <div><textarea id="editor" value={this.state.input} onChange={this.handleInputChange} /></div>
+            <div id="editor-preview-container">
+                <div id="editor-container"><textarea id="editor" value={this.state.input} onChange={this.handleInputChange} /></div>
                 <div id="preview" dangerouslySetInnerHTML={renderMarkdown(marked(this.state.input))}></div>
             </div>
         );
@@ -49,4 +49,4 @@ function renderMarkdown(markdown) {
     };
 }
 
-ReactDOM.render(<MarkdownEditor />, document.getElementById("editor-viewer-container"));
+ReactDOM.render(<MarkdownEditor />, document.getElementById("markdown-viewer"));
