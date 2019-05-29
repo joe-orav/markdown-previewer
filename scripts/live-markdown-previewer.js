@@ -6,7 +6,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var defaultMarkdown = "# Markdown Previewer Example\n" + "## My Sub Heading\n" + "Here is an example of `inline code`\n" + "```\n# This is an example of a code block\nconsole.log('Hello World');\n```\n" + "Here is a list:\n" + "* Item 1\n* Item 2\n* Item 3" + "\n\nHere's a blockquote:\n" + "> Blockquote\n\n" + "You can make things **bold**\n\n" + "You can even have images:\n\n" + "![Image](https://i.imgur.com/nP0yDKM.jpg)\n\n" + "Learn more about the Markdown language at: " + "[Markdown Language Article](https://en.wikipedia.org/wiki/Markdown)";
+var defaultMarkdown = "# Markdown Previewer\n" + "## My Sub Heading\n" + "Here is an example of `inline code`\n" + "```\n# This is an example of a code block\nconsole.log('Hello World');\n```\n" + "Here is a list:\n" + "* Item 1\n* Item 2\n* Item 3" + "\n\nHere's a blockquote:\n" + "> Blockquote\n\n" + "You can make things **bold**\n\n" + "You can even have images:\n\n" + "![Image](https://i.imgur.com/nP0yDKM.jpg)\n\n" + "Learn more about the Markdown language at: " + "[Markdown Language Article](https://en.wikipedia.org/wiki/Markdown)";
 
 var MarkdownEditor = function (_React$Component) {
     _inherits(MarkdownEditor, _React$Component);
@@ -34,19 +34,6 @@ var MarkdownEditor = function (_React$Component) {
     }, {
         key: "render",
         value: function render() {
-            var styles = {
-                width: 600,
-                height: 900,
-                display: "inline"
-            };
-            var divStyles = {
-                width: 600,
-                height: 900,
-                border: "1px solid black",
-                display: "inline-block",
-                verticalAlign: "top"
-            };
-
             marked.setOptions({
                 sanitize: true,
                 headerIds: false
@@ -57,10 +44,10 @@ var MarkdownEditor = function (_React$Component) {
                 null,
                 React.createElement(
                     "div",
-                    { style: divStyles },
-                    React.createElement("textarea", { id: "editor", style: styles, value: this.state.input, onChange: this.handleInputChange })
+                    null,
+                    React.createElement("textarea", { id: "editor", value: this.state.input, onChange: this.handleInputChange })
                 ),
-                React.createElement("div", { id: "preview", style: divStyles, dangerouslySetInnerHTML: renderMarkdown(marked(this.state.input)) })
+                React.createElement("div", { id: "preview", dangerouslySetInnerHTML: renderMarkdown(marked(this.state.input)) })
             );
         }
     }]);

@@ -1,4 +1,4 @@
-const defaultMarkdown = "# Markdown Previewer Example\n" +
+const defaultMarkdown = "# Markdown Previewer\n" +
                         "## My Sub Heading\n" +
                         "Here is an example of `inline code`\n" +
                         "```\n# This is an example of a code block\nconsole.log('Hello World');\n```\n" +
@@ -29,19 +29,6 @@ class MarkdownEditor extends React.Component {
     }
 
     render() {
-        const styles = {
-            width: 600,
-            height: 900,
-            display: "inline"
-        }
-        const divStyles = {
-            width: 600,
-            height: 900,
-            border: "1px solid black",
-            display: "inline-block",
-            verticalAlign: "top"
-        }
-        
         marked.setOptions({
             sanitize: true,
             headerIds: false  
@@ -49,8 +36,8 @@ class MarkdownEditor extends React.Component {
 
         return (
             <div>
-                <div style={divStyles}><textarea id="editor" style={styles} value={this.state.input} onChange={this.handleInputChange} /></div>
-                <div id="preview" style={divStyles} dangerouslySetInnerHTML={renderMarkdown(marked(this.state.input))}></div>
+                <div><textarea id="editor" value={this.state.input} onChange={this.handleInputChange} /></div>
+                <div id="preview" dangerouslySetInnerHTML={renderMarkdown(marked(this.state.input))}></div>
             </div>
         );
     }
