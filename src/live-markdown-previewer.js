@@ -20,6 +20,14 @@ class MarkdownEditor extends React.Component {
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
+
+        marked.setOptions({
+            sanitize: true,
+            headerIds: false,
+            gfm: true,
+            breaks: true,
+            xhtml: true
+        });
     }
 
     handleInputChange(event) {
@@ -29,11 +37,6 @@ class MarkdownEditor extends React.Component {
     }
 
     render() {
-        marked.setOptions({
-            sanitize: true,
-            headerIds: false  
-        });
-
         return (
             <div id="editor-preview-container">
                 <div id="editor-container"><textarea id="editor" value={this.state.input} onChange={this.handleInputChange} /></div>

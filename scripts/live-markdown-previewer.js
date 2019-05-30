@@ -21,6 +21,14 @@ var MarkdownEditor = function (_React$Component) {
         };
 
         _this.handleInputChange = _this.handleInputChange.bind(_this);
+
+        marked.setOptions({
+            sanitize: true,
+            headerIds: false,
+            gfm: true,
+            breaks: true,
+            xhtml: true
+        });
         return _this;
     }
 
@@ -34,11 +42,6 @@ var MarkdownEditor = function (_React$Component) {
     }, {
         key: "render",
         value: function render() {
-            marked.setOptions({
-                sanitize: true,
-                headerIds: false
-            });
-
             return React.createElement(
                 "div",
                 { id: "editor-preview-container" },
